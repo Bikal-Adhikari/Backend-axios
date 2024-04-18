@@ -13,10 +13,10 @@ app.get("/", async (req, res) => {
     const response = await axios.get("https://bored-api.appbrewery.com/random");
     const result = response.data;
     console.log(result);
-    res.render("solution.ejs", { data: result });
+    res.render("index.ejs", { data: result });
   } catch (error) {
     console.error("Failed to make request:", error.message);
-    res.render("solution.ejs", {
+    res.render("index.ejs", {
       error: error.message,
     });
   }
@@ -32,7 +32,7 @@ app.post("/", async (req, res) => {
     );
     const result = response.data;
     console.log(result);
-    res.render("solution.ejs", {
+    res.render("index.ejs", {
       data: result[Math.floor(Math.random() * result.length)],
     });
   } catch (error) {
